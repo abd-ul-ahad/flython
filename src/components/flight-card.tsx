@@ -61,7 +61,8 @@ export function FlightCard({
           </p>
 
           <p className="text-sm text-gray-500">
-            {stopType} {stopDuration && `· ${stopDuration}`}
+            {stopType}{" "}
+            {stopType !== "Non-stop" && stopDuration ? `· ${stopDuration}` : ""}
           </p>
         </div>
 

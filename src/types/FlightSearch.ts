@@ -4,7 +4,7 @@ export default interface FlightSearch {
   };
 }
 
-type Offer = {
+export type Offer = {
   id: string;
   total_emissions_kg: string;
   payment_requirements: PaymentRequirements;
@@ -50,7 +50,7 @@ type Slice = {
   origin: Place;
 };
 
-type Segment = {
+export type Segment = {
   id: string;
   origin_terminal: string | null;
   destination_terminal: string | null;
