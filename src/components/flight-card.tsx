@@ -9,7 +9,7 @@ interface FlightCardProps {
   duration: string;
   origin: string;
   destination: string;
-  price: number;
+  price: string;
   stopType: string;
   stopDuration?: string;
   logo: string;
@@ -31,8 +31,9 @@ export function FlightCard({
   nextDay = false,
 }: FlightCardProps) {
   return (
-    <div className="border rounded-lg overflow-hidden">
+    <div className="border rounded-lg shadow-sm overflow-hidden bg-white">
       <div className="p-4 grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-4 items-center">
+        {/* Airline & Flight Details */}
         <div className="flex items-center gap-4">
           <Image
             src={logo || "/placeholder.svg"}
@@ -42,29 +43,35 @@ export function FlightCard({
             className="rounded-md"
           />
           <div>
-            <div className="text-lg font-medium">
-              {departureTime} - {arrivalTime}
-              {nextDay && <sup>+1</sup>}
-            </div>
-            <div className="text-gray-600">
+            <p className="text-lg font-semibold">
+              {departureTime} - {arrivalTime}{" "}
+              {nextDay && <sup className="text-xs">+1</sup>}
+            </p>
+            <p className="text-gray-600">
               {airline} · {flightNumber}
-            </div>
+            </p>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row md:justify-center gap-2 md:gap-8">
-          <div className="text-lg font-medium">{duration}</div>
-          <div className="text-lg font-medium">
+        {/* Flight Duration & Route */}
+        <div className="text-center md:text-left">
+          <p className="text-lg font-medium">{duration}</p>
+          <p className="text-gray-600">
             {origin} - {destination}
-          </div>
+          </p>
+
+          <p className="text-sm text-gray-500">
+            {stopType} {stopDuration && `· ${stopDuration}`}
+          </p>
         </div>
 
+        {/* Price & Select Button */}
         <div className="flex flex-col items-end">
-          <div className="text-sm text-gray-600 mb-1">From</div>
-          <div className="text-xl font-bold mb-2">US${price.toFixed(2)}</div>
+          <p className="text-sm text-gray-600">From</p>
+          <p className="text-xl font-bold">US${price}</p>
           <Link
             href={`/flights/${flightNumber.replace(/, /g, "-")}/fare-options`}
-            className="bg-black text-white px-6 py-2 rounded-md font-medium"
+            className="bg-black text-white px-6 py-2 rounded-md font-medium mt-2"
           >
             Select
           </Link>

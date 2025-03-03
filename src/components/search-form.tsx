@@ -1,10 +1,16 @@
 "use client";
 
+import { SearchFlight } from "@/functions/SearchFlight";
 import { ChevronDown } from "lucide-react";
+import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
 
 export function SearchForm() {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   return (
-    <form className="space-y-6">
+    <div className="space-y-6">
       <div className="space-y-4">
         <div className="text-lg font-medium">Journey type</div>
         <div className="flex gap-4">
@@ -107,11 +113,28 @@ export function SearchForm() {
       </div>
 
       <button
+        onClick={() =>
+          SearchFlight.handleSubmit(
+            router,
+            "/flights/order",
+            {
+              origin: "LHE",
+              destination: "CAI",
+              departureDate: "2025-03-15",
+              departureTimeFrom: "08:30",
+              departureTimeTo: "23:59",
+              arrivalTimeFrom: "06:00",
+              arrivalTimeTo: "11:45",
+              passengerType: "adult",
+              cabinClass: "economy",
+            },
+            dispatch
+          )
+        }
         className="w-full bg-black text-white py-4 rounded-md font-medium"
-        disabled
       >
         Find available flights
       </button>
-    </form>
+    </div>
   );
 }

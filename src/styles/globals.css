@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(./loading.css);
-
 :root {
   --bg-primary: rgb(52, 53, 65);
   --bg-sec: rgb(66, 67, 83);

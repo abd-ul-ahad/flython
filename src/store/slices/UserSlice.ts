@@ -10,7 +10,7 @@ export interface User {
 }
 
 const initialState: User = {
-  name: "Ahad",
+  name: "",
   email: "",
   passages: [],
   token: null,

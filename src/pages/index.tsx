@@ -10,8 +10,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const router = useRouter();
-  const user = useSelector((state: RootState) => state.user);
+  const flightssearch = useSelector((state: RootState) => state.flightssearch);
   const dispatch = useDispatch();
+
+  
+  
+  useEffect(() => {
+    
+    console.log("flights", flightssearch);
+  }, [])
 
 
   return <></>;
