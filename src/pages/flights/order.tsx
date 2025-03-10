@@ -60,12 +60,10 @@ export default function FlightsPage() {
       <section className="space-y-4">
         {flightssearch?.data?.offers?.length ? (
           flightssearch.data.offers.map((flight: Offer, index: number) => {
-            const slice = flight.slices[0]; 
+            const slice = flight.slices[0];
             const segments = slice.segments;
             const firstSegment = segments[0];
             const lastSegment = segments[segments.length - 1];
-
-            const stopDuration = getStopDuration(segments);
 
             return (
               <FlightCard
@@ -77,13 +75,13 @@ export default function FlightsPage() {
                 duration={slice.duration}
                 origin={firstSegment.origin.iata_code}
                 destination={lastSegment.destination.iata_code}
-                price={`US$${flight.total_amount}`}
+                price={` ${flight.total_amount}`}
                 stopType={
                   segments.length > 1
                     ? `${segments.length - 1} stop`
                     : "Non-stop"
                 }
-                stopDuration={stopDuration ?? "—"}
+                stopDuration={getStopDuration(segments) ?? "—"}
                 logo={
                   flight.owner.logo_symbol_url ||
                   "/placeholder.svg?height=50&width=50"

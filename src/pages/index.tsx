@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import type { RootState } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "@/store/slices/UserSlice";
+import { FareOption } from "@/components/fare-option";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,13 +14,9 @@ export default function Home() {
   const flightssearch = useSelector((state: RootState) => state.flightssearch);
   const dispatch = useDispatch();
 
-  
-  
   useEffect(() => {
-    
     console.log("flights", flightssearch);
-  }, [])
-
+  }, []);
 
   return <></>;
 }

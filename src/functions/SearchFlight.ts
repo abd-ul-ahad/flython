@@ -63,4 +63,32 @@ export class SearchFlight {
       }
     }
   }
+
+    // static async getSingleOffer(offerId: string) {
+    //   const url = "http://localhost:3000/api/flights/search";
+
+    //   try {
+    //     const response = await axios.post(url, {
+
+    //     } {
+    //       headers: { "Content-Type": "application/json" },
+    //     });
+
+    //     return response.data;
+    //   } catch (error: any) {
+    //     if (axios.isAxiosError(error)) {
+    //       console.error("Axios Error:", error.response?.data || error.message);
+    //       throw new Error(
+    //         `Flight search failed: ${
+    //           error.response?.data?.message || "Unknown error"
+    //         }`
+    //       );
+    //     } else {
+    //       console.error("Unexpected Error:", error);
+    //       throw new Error(
+    //         "An unexpected error occurred while searching for flights."
+    //       );
+    //     }
+    //   }
+    // }
 }

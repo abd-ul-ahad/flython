@@ -119,7 +119,7 @@ export function SearchForm() {
             "/flights/order",
             {
               origin: "LHE",
-              destination: "CAI",
+              destination: "DXB",
               departureDate: "2025-03-15",
               departureTimeFrom: "08:30",
               departureTimeTo: "23:59",
